@@ -42,11 +42,21 @@ describe('Popover Widget', () => {
     });
 
     test('Закрытие при клике на пустую область', async () => {
-        await page.click('.popover-btn'); 
-        await page.click('body'); 
+        await page.click('.popover-btn');
+        await page.waitForSelector('.popover.active');
         
+        // Проверяем что открылся
         const popover = await page.$('.popover');
-        const isVisible = await page.evaluate(el => {
+        let isVisible = await page.evaluate(el => {
+            return el.classList.contains('active');
+        }, popover);
+        expect(isVisible).toBe(true);
+        
+
+        await page.mouse.click(50, 50);         // Клик в пустое место 
+        
+        
+        isVisible = await page.evaluate(el => {
             return el.classList.contains('active');
         }, popover);
         
