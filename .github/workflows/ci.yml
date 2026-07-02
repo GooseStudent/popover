@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
+      - name: Install wait-on
+        run: npm install -g wait-on
+      
       - name: Build
         run: npm run build
       
@@ -26,6 +29,6 @@ jobs:
       
       - name: Run tests
         run: |
-          npm start > /dev/null 2>&1 &
-          sleep 10
+          npm start &
+          wait-on http://localhost:8080 --timeout 30000
           npm test -- --runInBand --forceExit
