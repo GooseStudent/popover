@@ -45,9 +45,9 @@ h1 {
     min-width: 276px;
     max-width: 300px;
     background: white;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     text-align: left;
     font-size: 14px;
@@ -58,25 +58,46 @@ h1 {
     display: block;
 }
 
-.popover::before {
+.popover--top::before {
     content: '';
     position: absolute;
-    bottom: 100%;
-    left: 50%;
+    top: 100%;
+    left: var(--arrow-left, 50%);
     transform: translateX(-50%);
     border: 8px solid transparent;
-    border-bottom-color: rgba(0,0,0,0.2);
+    border-top-color: rgba(0, 0, 0, 0.2);
 }
 
-.popover::after {
+.popover--top::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: white;
+    margin-top: -1px;
+}
+
+.popover--bottom::before {
     content: '';
     position: absolute;
     bottom: 100%;
-    left: 50%;
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+
+.popover--bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: var(--arrow-left, 50%);
     transform: translateX(-50%);
     border: 7px solid transparent;
     border-bottom-color: white;
-    margin-bottom: 1px;
+    margin-bottom: -1px;
 }
 
 .popover-header {

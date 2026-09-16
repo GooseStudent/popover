@@ -2,3 +2,5 @@
 
 
 [![Node.js CI](https://github.com/GooseStudent/popover/actions/workflows/ci.yml/badge.svg)](https://github.com/GooseStudent/popover/actions/workflows/ci.yml)
+
+Git Pages: https://goosestudent.github.io/popover/
